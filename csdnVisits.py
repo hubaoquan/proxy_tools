@@ -12,7 +12,6 @@ MIN_BLOG_ID=105890062
 content = WebRequest().get(csdnWebSite+csdnUserName, timeout=10)
 # 提取文章URL
 articles = re.findall(csdnWebSite+csdnUserName+'/article/details/\d*', content.text)
-articles = articles.__reversed__()
 header = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.9 Safari/537.36',
     'Accept': '*/*',
@@ -28,7 +27,7 @@ proxy_server_list = []
 
 for  proxy_server_dict in proxy_server_list_dict:
     proxy_server_list.append(dict(proxy_server_dict)['proxy'])
-
+#  articles =["","",""]
 for articleUrl in articles:
     blogid = int(str(articleUrl).split("details/")[1])
     # 控制访问文章的区间，由于文章是按先后顺序发表，id也随之增长
