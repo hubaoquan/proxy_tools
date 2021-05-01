@@ -27,7 +27,7 @@ proxy_server_list = []
 
 for  proxy_server_dict in proxy_server_list_dict:
     proxy_server_list.append(dict(proxy_server_dict)['proxy'])
-#  articles =["","",""]
+#articles =['']
 for articleUrl in articles:
     blogid = int(str(articleUrl).split("details/")[1])
     # 控制访问文章的区间，由于文章是按先后顺序发表，id也随之增长
